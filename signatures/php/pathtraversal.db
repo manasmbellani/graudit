@@ -1,0 +1,21 @@
+# PHP - Known Path Traversal techniques
+gzfile\s*\(.*\)
+gzpassthru\s*\(.*\)
+readgzfile\s*\(.*\)
+copy\s*\(.*\)
+rename\s*\(.*\)
+rmdir\s*\(.*\)
+mkdir\s*\(.*\)
+unlink\s*\(.*\)
+file_get_conten\s*\(.*\)ts
+file_put_contents\s*\(.*\)
+parse_ini_file\s*\(.*\)
+fopen\s*\(.*\)
+file\s*\(.*\)
+# the following will cause an error to be generated if they take an unvalidated filename from user
+# taken from: https://phpsecurity.readthedocs.io/en/latest/Injection-Attacks.html#log-injection-also-log-file-injection
+# below "DOMDocument" may generate more errors but is useful if ->load is in second line
+# refer to http://php.net/manual/en/domdocument.load.php
+DOMDocument::load
+DOMDocument->load
+DOMDocument

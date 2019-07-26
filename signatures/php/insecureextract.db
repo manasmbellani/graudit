@@ -1,0 +1,4 @@
+#  Insecure Extract on a $_GET, $_POST behaves like register_globals - any value on the map that extract is applied on will be declared as variables overwriting your previously defined variables!!
+# See https://stackoverflow.com/questions/11907358/is-using-extract-post-insecure
+# Taken from: PHP Vulnerability Hunter code
+extract\s*\(.*\)

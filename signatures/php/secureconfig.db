@@ -1,0 +1,50 @@
+# PHP - Security Congiruation to check in php.ini file
+
+# It is not sufficient to disable allow_url_include/allow_url_fopen to prevent LFI, ensure that php wrappers are not allowed
+# Tips on how to exploit PHP wrappers: 
+#    https://highon.coffee/blog/lfi-cheat-sheet/#php-wrapper-expect-lfi
+# Taken from: https://phpsecurity.readthedocs.io/en/latest/_articles/PHP-Security-Default-Vulnerabilities-Security-Omissions-And-Framing-Programmers.html#a-input-validation
+# If disabled, this directive prevents the PHP file include functions from being used to include a remote file.
+allow_url_include
+# prevents reading of remote files via fopen - so if there is arbitrary file read control, this will execute
+# by default, set to 1, so it is allowed
+allow_url_fopen
+# if set, then variables can exist in global space and setting an input parameter ?authenticated=1&... in HTTP Request query string will set this also within code, so authenticated = 1 before script starts executing
+# if (check_credentials($username, $password)) {
+#      $authenticated = 1; }
+#  ...
+#  if ($authenticated) {
+#   ...
+# php has removed register_globals since PHP 6.0
+register_globals
+# some functions will be disabled if this config setting is enabled such as :
+#     shell_exec
+#     additional_parameters feature is disabled for mail function
+#     exec feature can only be used to run files within 'safe_mode_exec_dir' directory
+safe_mode
+# protects against sql injection by escaping single quotes
+magic_quotes
+# If disabled, this directive prevents the PHP file include functions from being used to include a remote file.
+allow_url_include
+# If disabled, this directive prevents PHP errors from being reported to the user’s browser. 
+# The log_errors and error_log options can be used to record error information on the server for diagnostic purposes.
+display_errors
+# If enabled, this directive causes PHP to allow file uploads over HTTP.
+file_uploads
+# Temporary directory used to store uploaded files. 
+# This can be used to ensure that sensitive files are not stored in a world- readable location
+upload_tmp_dir
+# use_trans_sid should be off. If on, sends the session ID in the URL which gets logged in the browser, can be shoulder surfed, etc
+# Taken from: https://rules.sonarsource.com/php/type/Vulnerability/RSPEC-3336
+use_trans_sid
+# Enable https://rules.sonarsource.com/php/type/Vulnerability/RSPEC-3333 to ensure that fopen can't just read anything
+# Also don't set it to "." as it can then be chdir'd
+# Taken from: https://rules.sonarsource.com/php/type/Vulnerability/RSPEC-3333
+open_basedir
+# enable_dl should be switched off to ensure that open_basedir restriction above is not switched off.
+# Taken from: https://rules.sonarsource.com/php/type/Vulnerability/RSPEC-3337
+enable_dl
+# Check the settings for that are applied on cookie params passed to this function
+# More information available here: https://www.php.net/manual/en/session.security.ini.php
+cookie
+session\.

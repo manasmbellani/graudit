@@ -1,0 +1,7 @@
+# PHP - Arbitrary File-Include vulnerabilties?
+include
+include_once
+require
+require_once
+virtual
+file\s*\(.*\)
