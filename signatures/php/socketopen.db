@@ -1,0 +1,8 @@
+# PHP - Sink function to open Network Connection to arbitrary sockets
+socket_create
+socket_connect
+socket_write
+socket_send
+socket_recv
+fsockopen
+pfsockopen

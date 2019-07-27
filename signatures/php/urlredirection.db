@@ -1,0 +1,7 @@
+# Using header, one can cause a redirection as follows, where if target is user-controlled then arbitrary redirection can occur! 
+# header(“Location: /<target>.php”);
+http_redirect\s*\(.*\)
+header\s*\(.*\)
+HttpMessage::setResponseCode\s*\(.*\)
+HttpMessage::setHeaders\s*\(.*\)
+redirect_url\s*\(.*\)

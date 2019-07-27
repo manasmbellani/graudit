@@ -1,5 +1,4 @@
 # PHP - Security Congiruation to check in php.ini file
-
 # It is not sufficient to disable allow_url_include/allow_url_fopen to prevent LFI, ensure that php wrappers are not allowed
 # Tips on how to exploit PHP wrappers: 
 #    https://highon.coffee/blog/lfi-cheat-sheet/#php-wrapper-expect-lfi

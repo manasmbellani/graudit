@@ -1,0 +1,27 @@
+# PHP - Command Execution
+ls
+dir
+pwd
+whoami 
+cat
+wget
+bash
+sh 
+exec
+curl
+unzip
+curl
+unzip
+tput
+# PHP - Execute
+exec\s*\(.*\)
+passthru\s*\(.*\)
+popen\s*\(.*\)
+proc_open\s*\(.*\)
+shell_exec\s*\(.*\)
+system\s*\(.*\)
+\`
+# # sometimes it is possible to bypass these as well through argument injection
+# See https://security.szurek.pl/exploit-bypass-php-escapeshellarg-escapeshellcmd.html
+escapeshellcmd
+escapeshellarg

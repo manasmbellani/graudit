@@ -1,0 +1,15 @@
+# PHP - Sink functions used for dynamically evaluating PHP code
+eval\s*\(.*\)
+call_user_func\s*\(.*\)
+call_user_func_array\s*\(.*\)
+call_user_method\s*\(.*\)
+call_user_method_array\s*\(.*\)
+create_function\s*\(.*\)
+# if /e passed, then every match of preg_replace will dynamically execute a piece of code
+preg_replace\s*\(.*\)
+# Manual Trick Dynamic code execution - a function with given name in $_GET['func'] will be 
+# executed if it exists within script
+#   <?php
+#       $var=$_GET[‘func’];
+#       $var();
+#   ?>
