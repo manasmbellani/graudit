@@ -1,0 +1,5 @@
+# to look for arbitrary file upload bugs
+move_uploaded_file
+fopen
+upload
+file\s*\(.*\)
